@@ -4,14 +4,14 @@ export const SettingsContext = React.createContext();
 
 function SettingsProvider({ children }){
 
-  const [display, setDisplay] = useState(3);
-  const [completed, setCompleted] = useState(false);
-  const [difficulty, setDifficulty] = useState(3);
+  const [pageItems, setPageItems] = useState(3);
+  const [completed, setCompleted] = useState(true);
+  const [sort, setSort] = useState('difficulty');
 
   const values = {
-    display,
+    pageItems,
     completed,
-    difficulty,
+    sort,
   }
 
   return(

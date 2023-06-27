@@ -1,18 +1,27 @@
 import { Pagination } from '@mantine/core';
 import { SettingsContext } from '../Context/Settings';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 
 
 function List(props) {
 
-  const { display, completed, difficulty } = useContext(SettingsContext);
+  const { pageItems, completed, sort } = useContext(SettingsContext);
+  const [currentPage, setCurrentPage] = useState(1);
 
+  const pages = Math.ceil(props.list.length / pageItems);
 
+  const displayItems = completed 
+  ? props.list.filter((items) => !items.complete)
+  : props.list;
+
+  const firstItem = (currentPage - 1) * pageItems;
+  const lastItem = currentPage * pageItems;
+  const finalItems = displayItems.slice(firstItem, lastItem);
 
   return (
     <>
-      {props.list.map(item => (
+      {finalItems.map(item => (
         <div key={item.id}>
           <p>{item.text}</p>
           <p><small>Assigned to: {item.assignee}</small></p>
@@ -23,7 +32,9 @@ function List(props) {
       ))}
 
       <Pagination
-        total={display}
+        total={pages}
+        value={currentPage}
+        onChange={(value)=> setCurrentPage(value)}
       />
 
     </>
