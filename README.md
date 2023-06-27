@@ -1,70 +1,193 @@
-# Getting Started with Create React App
+# LAB - Class 31
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project: Context API
 
-## Available Scripts
+### Author: Reece Renninger
 
-In the project directory, you can run:
+### Problem Domain  
 
-### `npm start`
+In Phase 1, we’re going to perform some refactoring of a Todo application built by another team. This application mixes application state and user settings at the top level and passes things around. It was a good proof of concept, but we need to make this production ready.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    Create a Detailed UML.
+    Properly modularize the application into separate components, note the proposed file structure below.
+    Implement the Context API to make some basic application settings available to components.
+        Show three items by default.
+        Hide completed items by default.
+        Add the sort word ‘difficulty’ by default.
+    Style the application using the Mantine Component API{target:_blank}.
+        NOTE: The expectation to style this entire component in one day is likely unrealistic. The recommendation is to implement the required functionality, then systematically begin styling with Mantine. Match the comp image(s) as closely as possible. 80% of the design work will likely take 20% of your time. By the end of the week, being mostly there with style is the goal!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Links and Resources
 
-### `npm test`
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions) 
+- [front-end application](http://xyz.com) (when applicable)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Collaborators
 
-### `npm run build`
+### Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### `.env` requirements (where applicable)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+for now I have none and do not require one
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### How to initialize/run your application (where applicable)
 
-### `npm run eject`
+- e.g. `npm start`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### How to use your library (where applicable)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Features / Routes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Feature One: Details of feature
+- GET : `/hello` - specific route to hit
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Tests
 
-## Learn More
+npm test
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### UML
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Alt text](assets/Lab31UML.png)
 
-### Code Splitting
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# LAB - Class 32
 
-### Analyzing the Bundle Size
+## Project: Project Name Here
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Author: Reece Renninger
 
-### Making a Progressive Web App
+### Problem Domain  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Concise Description of why this app exists
 
-### Advanced Configuration
+### Links and Resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions) 
+- [front-end application](http://xyz.com) (when applicable)
 
-### Deployment
+### Collaborators
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Setup
 
-### `npm run build` fails to minify
+#### `.env` requirements (where applicable)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+for now I have none and do not require one
+
+
+#### How to initialize/run your application (where applicable)
+
+- e.g. `npm start`
+
+#### How to use your library (where applicable)
+
+#### Features / Routes
+
+- Feature One: Details of feature
+- GET : `/hello` - specific route to hit
+
+#### Tests
+
+- How do you run tests?
+- Any tests of note?
+- Describe any tests that you did not complete, skipped, etc
+
+#### UML
+
+Link to an image of the UML for your application and response to events
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+# LAB - Class xx
+
+## Project: Project Name Here
+
+### Author: Student/Group Name
+
+### Problem Domain  
+
+Concise Description of why this app exists
+
+### Links and Resources
+
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions) 
+- [front-end application](http://xyz.com) (when applicable)
+
+### Collaborators
+
+### Setup
+
+#### `.env` requirements (where applicable)
+
+for now I have none and do not require one
+
+
+#### How to initialize/run your application (where applicable)
+
+- e.g. `npm start`
+
+#### How to use your library (where applicable)
+
+#### Features / Routes
+
+- Feature One: Details of feature
+- GET : `/hello` - specific route to hit
+
+#### Tests
+
+- How do you run tests?
+- Any tests of note?
+- Describe any tests that you did not complete, skipped, etc
+
+#### UML
+
+Link to an image of the UML for your application and response to events
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+# LAB - Class xx
+
+## Project: Project Name Here
+
+### Author: Student/Group Name
+
+### Problem Domain  
+
+Concise Description of why this app exists
+
+### Links and Resources
+
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions) 
+- [front-end application](http://xyz.com) (when applicable)
+
+### Collaborators
+
+### Setup
+
+#### `.env` requirements (where applicable)
+
+for now I have none and do not require one
+
+
+#### How to initialize/run your application (where applicable)
+
+- e.g. `npm start`
+
+#### How to use your library (where applicable)
+
+#### Features / Routes
+
+- Feature One: Details of feature
+- GET : `/hello` - specific route to hit
+
+#### Tests
+
+- How do you run tests?
+- Any tests of note?
+- Describe any tests that you did not complete, skipped, etc
+
+#### UML
+
+Link to an image of the UML for your application and response to events
