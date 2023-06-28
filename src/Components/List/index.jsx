@@ -2,7 +2,7 @@ import { Pagination } from '@mantine/core';
 import { SettingsContext } from '../Context/Settings';
 import { useContext, useState } from 'react';
 
-import { Grid, TextInput, Card } from '@mantine/core';
+import { Grid, Card } from '@mantine/core';
 
 function List(props) {
 
