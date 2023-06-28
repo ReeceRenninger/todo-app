@@ -19,7 +19,7 @@ In Phase 1, we’re going to perform some refactoring of a Todo application buil
 
 ### Links and Resources
 
-- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions) 
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions)
 - [front-end application](http://xyz.com) (when applicable)
 
 ### Collaborators
