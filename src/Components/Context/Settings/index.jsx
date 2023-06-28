@@ -25,6 +25,7 @@ function SettingsProvider({ children }) {
   }
 
   // Ryan said saving LS in useEffect can be messy but componentDidMount is not a thing in React Hooks? I am confused
+  //!! DO NOT PARSE WHEN GETTING ITEM, it was breaking my page on reset since it was parsing a null value if I didn't adjust every value
   useEffect(() => { 
   const localPageItems = localStorage.getItem('pageItems');
   console.log('my local page items', localPageItems);

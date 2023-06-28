@@ -1,62 +1,89 @@
 import { useContext, useState } from "react";
 import { SettingsContext } from "../Context/Settings";
-import { createStyles, Switch } from "@mantine/core";
+import { createStyles, Button, Checkbox, TextInput } from "@mantine/core";
+// import { NumberInput } from '@mantine/core';
 import { IconSettings } from '@tabler/icons-react';
 
-const SettingsForm = (event) => {
-  
-  const { pageItems, setPageItems, showCompleted, setShowCompleted, sort, setSort, saveLocalStorage  } = useContext(SettingsContext);
-  const [showUpdate, setShowUpdate] = useState(false);
-const styles = createStyles((theme) => ({
-  userSettingsHeader: {
+const useStyles = createStyles((theme) => ({
+  h1: {
     backgroundColor: theme.colors.gray[8],
     color: theme.colors.gray[0],
-    fontSize: '20px',
-    fontWeight: 'bold',
-    margin: '16px auto',
-    padding: '16px',
-    width: '80%',
+  },
+  div: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    padding: theme.spacing.md,
+  },
+  section: {
+    border: `1px solid gray`,
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: theme.spacing.md,
   }
 }));
 
-const { classes } = styles();
+const SettingsForm = (event) => {
 
-//!! grabbed from demo code with modifications, add onSubmit to form 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  setShowUpdate(true);
-  saveLocalStorage();
-  // e.target.reset(); // wtf is this doing?
-};
+  const { pageItems, setPageItems, showCompleted, setShowCompleted, sort, setSort, saveLocalStorage } = useContext(SettingsContext);
+  const [showUpdate, setShowUpdate] = useState(false);
 
-return (
+
+  const { classes } = useStyles();
+
+  //!! grabbed from demo code with modifications, add onSubmit to form 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowUpdate(true);
+    saveLocalStorage();
+    // e.target.reset(); // wtf is this doing?
+  };
+  //!! BROKE UP STYLING INTO SECTIONS TO TRY AND GET TO SIDE BY SIDE WITH SOME SIMPLE BORDERS 
+  return (
     <>
-      <h2 className={classes.userSettingsHeader}><IconSettings/> Manage Settings </h2>
+      <h1 className={classes.h1}><IconSettings /> Manage Settings </h1>
+      <div className={classes.div}>
+        <section className={classes.section}>
+          <h3>Update Settings</h3>
+          <form onSubmit={handleSubmit} className={classes.form} >
 
-      <form onChange={handleSubmit}>
-        <h3>Update Settings</h3>
-        <label >
-          <Switch label="Show Completed ToDos" type="checkbox" name="completed" checked={showCompleted} onChange={(event) => setShowCompleted(event.target.checked)} />
-        </label>
-        <label>
-          <span>Items Per Page</span>
-          <input type="number" name="pageItems" placeholder={pageItems} onChange={(event) => setPageItems(event.target.value)} />
-        </label>
-        <label>
-          <span>Sort Keyword</span>
-          <input type="text" name="sort" placeholder={sort} onChange={(event) => setSort(event.target.value)} />
-        </label>
-      </form>
-    
-      {showUpdate &&
-      <section>
-        <h3>Settings Updated</h3>
-        <p> Show Completed: {showCompleted ? 'yes' : 'no'}</p>
-        <p> Items Per Page: {pageItems}</p>
-        <p> Sort Keyword: {sort}</p>
-      </section>
-      }
-    
+            <Checkbox
+              label="Show Completed?"
+              checked={showCompleted}
+              onChange={(event) => setShowCompleted(event.target.checked)}
+            />
+{/* NumberInput is BREAKING THE LOGIC OF MY CODE WITH A val.ToFixed is not a function error */}
+            <input
+              type="number"
+              name="pageItems"
+              label="Items per page"
+              placeholder={pageItems}
+              value={pageItems}
+              onChange={(event) => setPageItems(event.target.value)}
+            />
+
+            <TextInput
+              label="Sort by"
+              placeholder="difficulty"
+              value={sort}
+              onChange={(event) => setSort(event.target.value)}
+            />
+
+            <Button type="submit">Update Settings</Button>
+          </form>
+        </section>
+        {
+          showUpdate &&
+          <section className={classes.section}>
+            <h3>Settings Updated</h3>
+            <p> Show Completed: {showCompleted ? 'yes' : 'no'}</p>
+            <p> Items Per Page: {pageItems}</p>
+            <p> Sort Keyword: {sort}</p>
+          </section>
+        }
+      </div>
+
     </>
   )
 };
