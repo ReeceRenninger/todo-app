@@ -7,18 +7,20 @@ const SettingsForm = (event) => {
   
   const { pageItems, setPageItems, showCompleted, setShowCompleted, sort, setSort } = useContext(SettingsContext);
 
-const useStyles = createStyles((theme) => ({
+const settingsFormStyle = createStyles((theme) => ({
   nav: {
     backgroundColor: theme.colors.gray[8],
-    height: '100%',
-    margin: 'auto',
-    color: 'white',
-    display: 'flex',
-    padding: '5px',
+    color: theme.colors.gray[0],
+    fontSize: '20px',
+    fontWeight: 'bold',
+    margin: '16px auto',
+    padding: '16px',
+    width: '80%',
+    fontFamily: 'apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
   }
 }));
 
-const { classes } = useStyles();
+const { classes } = settingsFormStyle();
 
 return (
 

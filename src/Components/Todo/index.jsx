@@ -4,10 +4,26 @@ import { v4 as uuid } from 'uuid';
 import List from '../List';
 
 import { Grid, TextInput, Card } from '@mantine/core';
-import { Button } from '@mantine/core';
-import { Slider } from '@mantine/core';
+import { Button, Slider, createStyles } from '@mantine/core';
+
+
+
+const toDoList = createStyles((theme) => ({
+  nav: {
+    backgroundColor: theme.colors.gray[8],
+    color: theme.colors.gray[0],
+    fontSize: '20px',
+    fontWeight: 'bold',
+    margin: '16px auto',
+    padding: '16px',
+    width: '80%',
+    fontFamily: 'apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
+  }
+}));
+
 
 const Todo = () => {
+  const { classes } = toDoList(); // this needs to be in the function
 
   const [defaultValues] = useState({
     difficulty: 3,
@@ -52,7 +68,7 @@ const Todo = () => {
 
   return (
     <>
-      <h1 data-testid="header-h1">To Do List: {incomplete} items pending</h1>
+      <h1 data-testid="header-h1" className={classes.nav}>To Do List: {incomplete} items pending</h1>
 
       <Grid display="inline-block">
         <Card>

@@ -2,20 +2,26 @@ import { createStyles, Navbar } from "@mantine/core";
 import { Link } from "react-router-dom";
 
 
-const useStyles = createStyles((theme) => ({
+const headerStyle = createStyles((theme) => ({
   nav: {
     backgroundColor: theme.colors.blue[6],
+    color: theme.colors.gray[0],
     height: '100%',
     margin: 'auto',
-    color: 'white',
     display: 'flex',
-    padding: '5px',
+    flexFlow: 'row wrap',
+    gap: '10px',
+    // justifyContent: 'space-evenly',
+    fontSize: '16px',
+    boxSizing: 'border-box',
+    padding: theme.spacing.md,
+    fontFamily: 'apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
   }
 }));
 
-function HeaderItems(props) {
+function Header(props) {
   
-  const { classes } = useStyles();
+  const { classes } = headerStyle();
 
   return (
 
@@ -27,4 +33,4 @@ function HeaderItems(props) {
   );
 }
 
-export default HeaderItems;
+export default Header;
