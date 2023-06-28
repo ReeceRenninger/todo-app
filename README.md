@@ -36,10 +36,10 @@ for now I have none and do not require one
 
 #### How to use your library (where applicable)
 
-#### Features / Routes
+#### Features
 
-- Feature One: Details of feature
-- GET : `/hello` - specific route to hit
+- Global state is able to be consumed by the components due to setting the provider with the context over the APP at the root index level.  This allows for the context information we set up in the Todo to be passed down to all the components through App for consumption.
+- The useForm() operation is used to handle the form submission and the change of the input fields.  This is done by passing in the initial state of the form and then returning the values and the handleInputChange function to be used in the form.
 
 #### Tests
 
