@@ -26,21 +26,21 @@ function SettingsProvider({ children }) {
 
   // Ryan said saving LS in useEffect can be messy but componentDidMount is not a thing in React Hooks? I am confused
   useEffect(() => { 
-  const localPageItems = JSON.parse(localStorage.getItem('pageItems'));
-  console.log('my local page items', localPageItems)
-  const localShowCompleted = JSON.parse(localStorage.getItem('showCompleted'));
-  console.log('my local show completed', localShowCompleted)
-  const localSort = JSON.parse(localStorage.getItem('sort'));
-  console.log('my local sort', localSort)
+  const localPageItems = localStorage.getItem('pageItems');
+  console.log('my local page items', localPageItems);
+  const localShowCompleted = localStorage.getItem('showCompleted');
+  console.log('my local show completed', localShowCompleted);
+  const localSort = localStorage.getItem('sort');
+  console.log('my local sort', localSort);
   //trying to practice one line if statements
   if(localPageItems){
-    setPageItems(JSON.parse.localPageItems);
+    setPageItems(JSON.parse(localPageItems));
   }
   if(localShowCompleted){
-    setShowCompleted(JSON.parse.localShowCompleted);
+    setShowCompleted(JSON.parse(localShowCompleted));
   }
   if(localSort){
-    setSort(JSON.parse.localSort)
+    setSort(JSON.parse(localSort))
   };
 }, []);
 
