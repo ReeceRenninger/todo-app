@@ -55,11 +55,7 @@ const Todo = () => {
 
   return (
     <>
-      {/* rendering but need to check if incomplete is passing down correctly */}
-      <Header incomplete={incomplete} />
-
-      {/* leave the form code inside of the Todo Component */}
-
+      <h1 data-testid="header-h1">To Do List: {incomplete} items pending</h1>
 
       <Grid display="inline-block">
         <Card>
@@ -101,7 +97,6 @@ const Todo = () => {
 
       <List list={list} toggleComplete={toggleComplete} />
 
-      <Footer />
     </>
   );
 };

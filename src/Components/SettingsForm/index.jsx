@@ -1,47 +1,42 @@
 import { useContext } from "react";
 import { SettingsContext } from "../Context/Settings";
+import { createStyles, Switch } from "@mantine/core";
+import { IconSettings } from '@tabler/icons-react';
 
-import { createStyles, Header, Navbar } from "@mantine/core";
-import { Link } from "react-router-dom";
+const SettingsForm = (event) => {
+  
+  const { pageItems, setPageItems, showCompleted, setShowCompleted, sort, setSort } = useContext(SettingsContext);
 
 const useStyles = createStyles((theme) => ({
   nav: {
-    backgroundColor: theme.colors.blue[6],
+    backgroundColor: theme.colors.gray,
     height: '100%',
     margin: 'auto',
     color: 'white',
     display: 'flex',
-    paddingBottom: '15px',
+    padding: '5px',
   }
 }));
 
-const SettingsForm = (event) => {
-  const { classes } = useStyles();
-  const { pageItems, setPageItems, completed, setCompleted, sort, setSort } = useContext(SettingsContext);
+const { classes } = useStyles();
 
-  return (
+return (
 
     <>
-      <Header >
-        <Navbar className={classes.nav}>
-          <Link to='/'>Home</Link>
-          <Link to='/settings'>Settings</Link>
-        </Navbar>
-      </Header>
-
-      <h1> Manage Settings </h1>
+    
+      <h1 className={classes.nav}><IconSettings/> Manage Settings </h1>
       <form>
-        <label>
-          <span>Show Completed ToDos</span>
-          <input type="checkbox" name="completed" checked={completed} onChange={(event) => setCompleted(event.target.checked)} />
+        <h3>Update Settings</h3>
+        <label >
+          <Switch label="Show Completed ToDos" type="checkbox" name="completed" checked={showCompleted} onChange={(event) => setShowCompleted(event.target.checked)} />
         </label>
         <label>
           <span>Items Per Page</span>
-          <input type="number" name="pageItems" value={pageItems} onChange={(event) => setPageItems(event.target.value)} />
+          <input type="number" name="pageItems" placeholder={pageItems} onChange={(event) => setPageItems(event.target.value)} />
         </label>
         <label>
           <span>Sort Keyword</span>
-          <input type="text" name="sort" value={sort} onChange={(event) => setSort(event.target.value)} />
+          <input type="text" name="sort" placeholder={sort} onChange={(event) => setSort(event.target.value)} />
         </label>
       </form>
     </>

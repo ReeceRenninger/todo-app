@@ -6,14 +6,14 @@ import { Grid, Card } from '@mantine/core';
 
 function List(props) {
 
-  const { pageItems, completed, sort } = useContext(SettingsContext);
+  const { pageItems, showCompleted, sort } = useContext(SettingsContext);
   const [currentPage, setCurrentPage] = useState(1);
 
   const pages = Math.ceil(props.list.length / pageItems);
 
-  const displayItems = completed 
-  ? props.list.filter((items) => !items.complete)
-  : props.list;
+  const displayItems = showCompleted 
+  ? props.list
+  : props.list.filter((items) => !items.complete);
 
   const firstItem = (currentPage - 1) * pageItems;
   const lastItem = currentPage * pageItems;
