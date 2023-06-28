@@ -6,7 +6,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import List from '../List';
 
-import { Grid, TextInput } from '@mantine/core';
+import { Grid, TextInput, Card } from '@mantine/core';
 
 import { Button } from '@mantine/core';
 import { Slider } from '@mantine/core';
@@ -62,7 +62,9 @@ const Todo = () => {
       {/* leave the form code inside of the Todo Component */}
 
 
-      <Grid>
+      <Grid display="inline-block">
+        <Card>
+
         <form onSubmit={handleSubmit}>
 
           <h2>Add To Do Item</h2>
@@ -95,6 +97,7 @@ const Todo = () => {
             <Button radius="md" type="submit">Add Item</Button>
           </label>
         </form>
+        </Card>
       </Grid>
 
       <List list={list} toggleComplete={toggleComplete} />

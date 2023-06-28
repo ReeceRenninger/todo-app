@@ -2,7 +2,7 @@ import { Pagination } from '@mantine/core';
 import { SettingsContext } from '../Context/Settings';
 import { useContext, useState } from 'react';
 
-
+import { Grid, TextInput, Card } from '@mantine/core';
 
 function List(props) {
 
@@ -21,6 +21,9 @@ function List(props) {
 
   return (
     <>
+    <Grid display="inline-block">
+      <Card>
+
       {finalItems.map(item => (
         <div key={item.id}>
           <p>{item.text}</p>
@@ -36,7 +39,8 @@ function List(props) {
         value={currentPage}
         onChange={(value)=> setCurrentPage(value)}
       />
-
+      </Card>
+    </Grid>
     </>
   )
 }
