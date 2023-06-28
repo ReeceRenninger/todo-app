@@ -5,7 +5,7 @@ import { IconSettings } from '@tabler/icons-react';
 
 const SettingsForm = (event) => {
   
-  const { pageItems, setPageItems, showCompleted, setShowCompleted, sort, setSort } = useContext(SettingsContext);
+  const { pageItems, setPageItems, showCompleted, setShowCompleted, sort, setSort, saveLocalStorage  } = useContext(SettingsContext);
 
 const styles = createStyles((theme) => ({
   userSettingsHeader: {
@@ -21,12 +21,18 @@ const styles = createStyles((theme) => ({
 
 const { classes } = styles();
 
-return (
+//!! grabbed from demo code with modifications, add onSubmit to form 
+const handleSubmit = (e) => {
+  e.preventDefault();
+  saveLocalStorage();
+  // e.target.reset(); // wtf is this doing?
+};
 
+return (
     <>
-    
       <h2 className={classes.userSettingsHeader}><IconSettings/> Manage Settings </h2>
-      <form>
+
+      <form onSubmit={handleSubmit}>
         <h3>Update Settings</h3>
         <label >
           <Switch label="Show Completed ToDos" type="checkbox" name="completed" checked={showCompleted} onChange={(event) => setShowCompleted(event.target.checked)} />
