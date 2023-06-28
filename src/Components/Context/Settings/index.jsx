@@ -10,8 +10,11 @@ function SettingsProvider({ children }){
 
   const values = {
     pageItems,
+    setPageItems,
     completed,
+    setCompleted,
     sort,
+    setSort,
   }
 
   return(
