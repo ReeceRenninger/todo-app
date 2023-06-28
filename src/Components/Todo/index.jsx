@@ -8,8 +8,8 @@ import { Button, Slider, createStyles } from '@mantine/core';
 
 
 
-const toDoList = createStyles((theme) => ({
-  nav: {
+const styles = createStyles((theme) => ({
+  todo: {
     backgroundColor: theme.colors.gray[8],
     color: theme.colors.gray[0],
     fontSize: '20px',
@@ -17,13 +17,12 @@ const toDoList = createStyles((theme) => ({
     margin: '16px auto',
     padding: '16px',
     width: '80%',
-    fontFamily: 'apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
   }
 }));
 
 
 const Todo = () => {
-  const { classes } = toDoList(); // this needs to be in the function
+  const { classes } = styles(); // this needs to be in the function
 
   const [defaultValues] = useState({
     difficulty: 3,
@@ -68,7 +67,7 @@ const Todo = () => {
 
   return (
     <>
-      <h1 data-testid="header-h1" className={classes.nav}>To Do List: {incomplete} items pending</h1>
+      <h1 data-testid="header-h1" className={classes.todo}>To Do List: {incomplete} items pending</h1>
 
       <Grid display="inline-block">
         <Card>

@@ -7,8 +7,8 @@ const SettingsForm = (event) => {
   
   const { pageItems, setPageItems, showCompleted, setShowCompleted, sort, setSort } = useContext(SettingsContext);
 
-const settingsFormStyle = createStyles((theme) => ({
-  nav: {
+const styles = createStyles((theme) => ({
+  userSettingsHeader: {
     backgroundColor: theme.colors.gray[8],
     color: theme.colors.gray[0],
     fontSize: '20px',
@@ -16,17 +16,16 @@ const settingsFormStyle = createStyles((theme) => ({
     margin: '16px auto',
     padding: '16px',
     width: '80%',
-    fontFamily: 'apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
   }
 }));
 
-const { classes } = settingsFormStyle();
+const { classes } = styles();
 
 return (
 
     <>
     
-      <h2 className={classes.nav}><IconSettings/> Manage Settings </h2>
+      <h2 className={classes.userSettingsHeader}><IconSettings/> Manage Settings </h2>
       <form>
         <h3>Update Settings</h3>
         <label >

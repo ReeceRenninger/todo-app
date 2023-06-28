@@ -1,9 +1,9 @@
-import { createStyles, Navbar } from "@mantine/core";
+import { createStyles, Navbar, Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 
 
-const headerStyle = createStyles((theme) => ({
-  nav: {
+const styles = createStyles((theme) => ({
+  headerNav: {
     backgroundColor: theme.colors.blue[6],
     color: theme.colors.gray[0],
     height: '100%',
@@ -15,21 +15,22 @@ const headerStyle = createStyles((theme) => ({
     fontSize: '16px',
     boxSizing: 'border-box',
     padding: theme.spacing.md,
-    fontFamily: 'apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
   }
 }));
 
 function Header(props) {
   
-  const { classes } = headerStyle();
+  const { classes } = styles();
 
   return (
+<>
+<Navbar className={classes.headerNav}>
+  <Link to='/'>Home</Link>
+  <Link to='/settings'>Settings</Link>
+<Button>Log Out</Button>
+</Navbar>
 
-      <Navbar className={classes.nav}>
-        <Link to='/'>Home</Link>
-        <Link to='/settings'>Settings</Link>
-      </Navbar>
-
+</>
   );
 }
 
