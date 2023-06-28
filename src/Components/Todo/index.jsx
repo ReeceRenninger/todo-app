@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useForm from '../../hooks/form';
-
 import { v4 as uuid } from 'uuid';
-import Header from '../Header';
-import Footer from '../Footer';
 import List from '../List';
 
 import { Grid, TextInput, Card } from '@mantine/core';

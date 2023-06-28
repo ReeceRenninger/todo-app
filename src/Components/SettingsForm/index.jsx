@@ -9,7 +9,7 @@ const SettingsForm = (event) => {
 
 const useStyles = createStyles((theme) => ({
   nav: {
-    backgroundColor: theme.colors.gray,
+    backgroundColor: theme.colors.gray[8],
     height: '100%',
     margin: 'auto',
     color: 'white',
@@ -24,7 +24,7 @@ return (
 
     <>
     
-      <h1 className={classes.nav}><IconSettings/> Manage Settings </h1>
+      <h2 className={classes.nav}><IconSettings/> Manage Settings </h2>
       <form>
         <h3>Update Settings</h3>
         <label >
