@@ -20,18 +20,20 @@ const SettingsForm = (event) => {
   const { pageItems, setPageItems, completed, setCompleted, sort, setSort } = useContext(SettingsContext);
 
   return (
+
     <>
-       <Header >
-      <Navbar className={classes.nav}>
-        <Link to='/'>Home</Link>
-        <Link to='/settings'>Settings</Link>
-      </Navbar>
-    </Header>
-    <h1> Manage Settings </h1>
+      <Header >
+        <Navbar className={classes.nav}>
+          <Link to='/'>Home</Link>
+          <Link to='/settings'>Settings</Link>
+        </Navbar>
+      </Header>
+
+      <h1> Manage Settings </h1>
       <form>
         <label>
           <span>Show Completed ToDos</span>
-          <input type="checkbox" name="completed" checked={completed} onChange={(event) => setCompleted(event.target.value)} />
+          <input type="checkbox" name="completed" checked={completed} onChange={(event) => setCompleted(event.target.checked)} />
         </label>
         <label>
           <span>Items Per Page</span>

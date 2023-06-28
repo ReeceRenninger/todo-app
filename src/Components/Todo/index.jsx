@@ -7,7 +7,6 @@ import Footer from '../Footer';
 import List from '../List';
 
 import { Grid, TextInput, Card } from '@mantine/core';
-
 import { Button } from '@mantine/core';
 import { Slider } from '@mantine/core';
 
