@@ -1,9 +1,12 @@
-function Header(props) {
+import { Header } from '@mantine/core';
+
+function HeaderItems(props) {
+  
   return (
-    <header data-testid="todo-header">
+    <Header data-testid="todo-header">
       <h1 data-testid="todo-h1">To Do List: {props.incomplete} items pending</h1>
-    </header>
+    </Header>
   );
 }
 
-export default Header;
+export default HeaderItems;
