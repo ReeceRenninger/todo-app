@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid';
 import List from '../List';
 
 import { Grid, TextInput, Button, Text, createStyles, Slider } from '@mantine/core';
+import Auth from '../Auth';
 
 
 const styles = createStyles((theme) => ({
@@ -104,6 +105,7 @@ const Todo = () => {
           </form>
 
         </Grid.Col>
+        
         <Grid.Col xs={12} sm={8}>
           <List
             deleteItem={deleteItem} //trying to remove the error and place function here for now

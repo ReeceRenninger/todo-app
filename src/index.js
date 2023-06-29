@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import SettingsProvider from './Components/Context/Settings';
+import SettingsProvider from './Context/Settings';
 import { MantineProvider } from '@mantine/core';
-import AuthProvider from './Components/Context/Auth';
+import AuthProvider from './Context/Auth';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

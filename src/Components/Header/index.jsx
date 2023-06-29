@@ -15,6 +15,10 @@ const styles = createStyles((theme) => ({
     fontSize: '16px',
     boxSizing: 'border-box',
     padding: theme.spacing.md,
+  },
+  Button: {
+    textAlign: 'center',
+    backgroundColor: theme.colors.red,
   }
 }));
 
@@ -27,7 +31,6 @@ function Header(props) {
 <Navbar className={classes.headerNav}>
   <Link to='/'>Home</Link>
   <Link to='/settings'>Settings</Link>
-<Button>Log Out</Button>
 </Navbar>
 
 </>

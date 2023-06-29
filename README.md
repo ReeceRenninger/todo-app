@@ -105,19 +105,27 @@ for now I have none and do not require one
 
 #### UML
 
-![Alt text](assets/Lab31UML.png)
+![Alt text](assets/Lab33UML.png)
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 # LAB - Class 33
 
-## Project: Project Name Here
+## Project: Auth
 
-### Author: Student/Group Name
+### Author: Reece Renninger
 
 ### Problem Domain  
 
-Concise Description of why this app exists
+In Phase 3, we’d like to extend the functionality of the application by requiring users be logged in to view items and also restrict access based on user type. The user stories from Phases 1, and 2 remain unchanged. For this phase, we are now adding the following new user stories.
+
+    As a user, I want to provide a way for other users to create new accounts.
+    As a user, I want to provide a way for all users to login to their account.
+    As a user, I want to make sure that my To Do items are only viewable to users that have logged in with a valid account.
+    As a user, I want to ensure that only fellow users that are allowed to “create”, based on their user type, can add new To Do Items.
+    As a user, I want to ensure that only fellow users that are allowed to “update”, based on their user type, can mark To Do Items complete.
+    As a user, I want to ensure that only fellow users that are allowed to “delete”, based on their user type, can delete new To Do Items.
+
 
 ### Links and Resources
 
@@ -141,18 +149,18 @@ for now I have none and do not require one
 
 #### Features / Routes
 
-- Feature One: Details of feature
-- GET : `/hello` - specific route to hit
+- Feature One: Local user settings persist with local storage to allow todo list to be customized
+- Feature Two: User can add, delete, and hide completed tasks
+- Feature Three: User can sort tasks by difficulty
+- Feature Four: Auth implemented with users able to sign in with different roles
 
 #### Tests
 
-- How do you run tests?
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+- npm test
 
 #### UML
 
-Link to an image of the UML for your application and response to events
+![Alt text](assets/Lab33UML.png)
 
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

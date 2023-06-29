@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AuthContext } from '../Context/Auth';
+import { AuthContext } from '../../Context/Auth';
 import { When } from 'react-if';
 
 function Auth ({ capability, children }){

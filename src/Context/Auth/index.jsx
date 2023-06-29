@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import testUsers from '../Auth/lib/users.js';
+import testUsers from './lib/users.js';
 import jwt_decode from 'jwt-decode';
+
 export const AuthContext = React.createContext();
 
 function AuthProvider({ children }){
@@ -45,6 +46,11 @@ function AuthProvider({ children }){
     setUser({});
     setIsLoggedIn(false);
   };
+
+  //authorize function for lab
+  const can = (capability) => {
+    return user?.capability?.includes(capability); //will return true if each aspect is met
+  };
   
   const values = {
     isLoggedIn,
@@ -52,6 +58,7 @@ function AuthProvider({ children }){
     error,
     login,
     logout,
+    can,
   }
 
   return (
