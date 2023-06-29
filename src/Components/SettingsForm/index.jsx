@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { SettingsContext } from "../Context/Settings";
-import { createStyles, Button, Checkbox, TextInput } from "@mantine/core";
+import { createStyles, Button, Checkbox, TextInput, Text } from "@mantine/core";
 // import { NumberInput } from '@mantine/core';
 import { IconSettings } from '@tabler/icons-react';
 
@@ -76,10 +76,10 @@ const SettingsForm = (event) => {
         {
           showUpdate &&
           <section className={classes.section}>
-            <h3>Settings Updated</h3>
-            <p> Show Completed: {showCompleted ? 'yes' : 'no'}</p>
-            <p> Items Per Page: {pageItems}</p>
-            <p> Sort Keyword: {sort}</p>
+            <h3>Updated Settings</h3>
+            <Text> Show Completed: {showCompleted ? 'yes' : 'no'}</Text>
+            <Text> Items Per Page: {pageItems}</Text>
+            <Text> Sort Keyword: {sort}</Text>
           </section>
         }
       </div>

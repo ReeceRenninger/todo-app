@@ -1,12 +1,11 @@
-import { Pagination } from '@mantine/core';
 import { SettingsContext } from '../Context/Settings';
 import { useContext, useState } from 'react';
 
-import { Grid, Card } from '@mantine/core';
+import { Card, Button, Pagination, Text} from '@mantine/core';
 
 function List({list, toggleComplete}) {
 
-  const { pageItems, showCompleted, sort } = useContext(SettingsContext);
+  const { pageItems, showCompleted } = useContext(SettingsContext); //sort was taken out of here
   const [currentPage, setCurrentPage] = useState(1);
 
   const displayItems = showCompleted 
@@ -20,18 +19,20 @@ function List({list, toggleComplete}) {
 
   return (
     <>
-    <Grid display="inline-block">
-      <Card>
+    
+      <Card shadow="sm" padding="md" margin="md">
+        <Card.Section>
 
       {finalItems.map(item => (
         <div key={item.id}>
-          <p>{item.text}</p>
-          <p><small>Assigned to: {item.assignee}</small></p>
-          <p><small>Difficulty: {item.difficulty}</small></p>
-          <div onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</div>
+          <Text>{item.text}</Text>
+          <Text><small>Assigned to: {item.assignee}</small></Text>
+          <Text><small>Difficulty: {item.difficulty}</small></Text>
+          <Button onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</Button>
           <hr />
         </div>
       ))}
+      </Card.Section>
 
       <Pagination
         total={pages}
@@ -39,7 +40,7 @@ function List({list, toggleComplete}) {
         onChange={(value)=> setCurrentPage(value)}
       />
       </Card>
-    </Grid>
+
     </>
   )
 }

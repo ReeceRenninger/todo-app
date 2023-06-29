@@ -3,9 +3,7 @@ import useForm from '../../hooks/form';
 import { v4 as uuid } from 'uuid';
 import List from '../List';
 
-import { Grid, TextInput, Card } from '@mantine/core';
-import { Button, Slider, createStyles } from '@mantine/core';
-
+import { Grid, TextInput, Button, Text, createStyles, Slider } from '@mantine/core';
 
 
 const styles = createStyles((theme) => ({
@@ -64,51 +62,55 @@ const Todo = () => {
     // disable code used to avoid linter warning 
     // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, [list]);
-
+//!! Discovered grids can hold multiple grid columns around specific components
   return (
     <>
       <h1 data-testid="header-h1" className={classes.todo}>To Do List: {incomplete} items pending</h1>
 
-      <Grid display="inline-block">
-        <Card>
+      <Grid> 
+        <Grid.Col xs={12} sm={4}>
 
-        <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
 
-          <h2>Add To Do Item</h2>
+            <h2>Add To Do Item</h2>
 
-          <label>
-            <span>To Do Item</span>
-            <TextInput onChange={handleChange} name="text" type="text" placeholder="Item Details" />
-          </label>
+            <TextInput
+              onChange={handleChange}
+              name="text"
+              type="text"
+              placeholder="Item Details"
+            />
 
-          <label>
-            <span>Assigned To</span>
-            <TextInput onChange={handleChange} name="assignee" type="text" placeholder="Assignee Name" />
-          </label>
+            <TextInput
+              onChange={handleChange}
+              name="assignee"
+              type="text"
+              placeholder="Assignee Name"
+            />
 
-          <label>
-            <span>Difficulty</span>
+            <Text>Difficulty Rating</Text>
             <Slider
+              onChange={handleChange}
+              defaultValue={defaultValues.difficulty}
+              min={1}
+              max={5}
+              name="difficulty"
+            />
 
-              marks={[
-                { value: 20, label: '1' },
-                { value: 40, label: '2' },
-                { value: 60, label: '3' },
-                { value: 80, label: '4' },
-                { value: 100, label: '5' },
-              ]}
-              onChange={handleChange} defaultValue={defaultValues.difficulty} type="range" min={1} max={5} name="difficulty" />
-          </label>
 
-          <label>
-            <Button radius="md" type="submit">Add Item</Button>
-          </label>
-        </form>
-        </Card>
+            <label>
+              <Button radius="md" type="submit">Add Item</Button>
+            </label>
+          </form>
+
+        </Grid.Col>
+        <Grid.Col xs={12} sm={8}>
+          <List
+            deleteItem={deleteItem} //trying to remove the error and place function here for now
+            list={list}
+            toggleComplete={toggleComplete} />
+        </Grid.Col>
       </Grid>
-
-      <List list={list} toggleComplete={toggleComplete} />
-
     </>
   );
 };
