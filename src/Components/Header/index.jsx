@@ -1,5 +1,6 @@
-import { createStyles, Navbar, Button } from "@mantine/core";
+import { createStyles, Navbar } from "@mantine/core";
 import { Link } from "react-router-dom";
+import Login from "../Login";
 
 
 const styles = createStyles((theme) => ({
@@ -31,6 +32,7 @@ function Header(props) {
 <Navbar className={classes.headerNav}>
   <Link to='/'>Home</Link>
   <Link to='/settings'>Settings</Link>
+  <Login />
 </Navbar>
 
 </>

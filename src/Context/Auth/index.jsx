@@ -25,7 +25,7 @@ function AuthProvider({ children }){
     }
     catch (error) {
       setError(error);
-      console.log('Token Validation Error', error);
+      console.log('User Token Validation Error', error);
     }
 
   };
@@ -49,7 +49,7 @@ function AuthProvider({ children }){
 
   //authorize function for lab
   const can = (capability) => {
-    return user?.capability?.includes(capability); //will return true if each aspect is met
+    return user?.capabilities?.includes(capability); //will return true if each aspect is met
   };
   
   const values = {
