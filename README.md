@@ -105,7 +105,7 @@ for now I have none and do not require one
 
 #### UML
 
-![Alt text](assets/CodeChallenge32WhiteBoard.png)
+![Alt text](assets/Lab31UML.png)
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
