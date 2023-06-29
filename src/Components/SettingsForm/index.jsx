@@ -26,7 +26,15 @@ const useStyles = createStyles((theme) => ({
 
 const SettingsForm = (event) => {
 
-  const { pageItems, setPageItems, showCompleted, setShowCompleted, sort, setSort, saveLocalStorage } = useContext(SettingsContext);
+  const { 
+    pageItems, 
+    setPageItems, 
+    showCompleted, 
+    setShowCompleted, 
+    sort, 
+    setSort, 
+    saveLocalStorage } = useContext(SettingsContext);
+
   const [showUpdate, setShowUpdate] = useState(false);
 
 
@@ -35,10 +43,11 @@ const SettingsForm = (event) => {
   //!! grabbed from demo code with modifications, add onSubmit to form 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowUpdate(true);
+    setShowUpdate(true); // populates the box for updated settings
     saveLocalStorage();
     // e.target.reset(); // wtf is this doing?
   };
+  
   //!! BROKE UP STYLING INTO SECTIONS TO TRY AND GET TO SIDE BY SIDE WITH SOME SIMPLE BORDERS 
   return (
     <>

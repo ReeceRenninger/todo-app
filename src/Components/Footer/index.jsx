@@ -1,6 +1,16 @@
+import { createStyles } from "@mantine/core";
+
+const useStyles = createStyles((theme) => ({
+  footer: {
+    textAlign: 'right',
+  }
+}));
+
+
 function Footer() {
-  return(
-    <footer data-testid="footer-test">Author: Reece Renninger </footer>
+  const { classes } = useStyles();
+  return (
+    <footer className={classes.footer}data-testid="footer-test">Author: Reece Renninger </footer>
   )
 }
 
