@@ -76,7 +76,7 @@ In Phase 2, we’re going to extend the functionality of our application by allo
 ### Links and Resources
 
 - [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions)
-- [front-end application](http://xyz.com) (when applicable)
+- [front-end application](https://codesandbox.io/p/github/ReeceRenninger/todo-app/context-methods?layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522panelType%2522%253A%2522TABS%2522%252C%2522id%2522%253A%2522cljgehn7h00ad2a6f60yzd25o%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522panelType%2522%253A%2522TABS%2522%252C%2522id%2522%253A%2522cljgehn7h00af2a6fq35yxyw2%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B50%252C50%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522cljgehn7h00ad2a6f60yzd25o%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522cljgehn7h00ac2a6fwao1rlv6%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522FILE%2522%252C%2522filepath%2522%253A%2522%252FREADME.md%2522%257D%255D%252C%2522id%2522%253A%2522cljgehn7h00ad2a6f60yzd25o%2522%252C%2522activeTabId%2522%253A%2522cljgehn7h00ac2a6fwao1rlv6%2522%257D%252C%2522cljgehn7h00af2a6fq35yxyw2%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522cljgehn7h00ae2a6flc72td79%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522PROJECT_SETUP%2522%257D%255D%252C%2522id%2522%253A%2522cljgehn7h00af2a6fq35yxyw2%2522%252C%2522activeTabId%2522%253A%2522cljgehn7h00ae2a6flc72td79%2522%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D) (when applicable)
 
 ### Collaborators
 
@@ -95,19 +95,17 @@ for now I have none and do not require one
 
 #### Features / Routes
 
-- Feature One: Details of feature
-- GET : `/hello` - specific route to hit
+- Feature One: Local user settings persist with local storage to allow todo list to be customized
+- Feature Two: User can add, delete, and hide completed tasks
+- Feature Three: User can sort tasks by difficulty
 
 #### Tests
 
-- How do you run tests?
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+- npm test
 
 #### UML
 
-Link to an image of the UML for your application and response to events
-
+![Alt text](assets/CodeChallenge32WhiteBoard.png)
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
