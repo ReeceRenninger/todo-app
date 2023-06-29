@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { SettingsContext } from "../Context/Settings";
-import { createStyles, Button, Checkbox, TextInput, Text } from "@mantine/core";
-// import { NumberInput } from '@mantine/core';
+import { createStyles, Button, Switch, TextInput, Text } from "@mantine/core";
+import { NumberInput } from '@mantine/core';
 import { IconSettings } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
@@ -26,13 +26,13 @@ const useStyles = createStyles((theme) => ({
 
 const SettingsForm = (event) => {
 
-  const { 
-    pageItems, 
-    setPageItems, 
-    showCompleted, 
-    setShowCompleted, 
-    sort, 
-    setSort, 
+  const {
+    pageItems,
+    setPageItems,
+    showCompleted,
+    setShowCompleted,
+    sort,
+    setSort,
     saveLocalStorage } = useContext(SettingsContext);
 
   const [showUpdate, setShowUpdate] = useState(false);
@@ -47,7 +47,7 @@ const SettingsForm = (event) => {
     saveLocalStorage();
     // e.target.reset(); // wtf is this doing?
   };
-  
+
   //!! BROKE UP STYLING INTO SECTIONS TO TRY AND GET TO SIDE BY SIDE WITH SOME SIMPLE BORDERS 
   return (
     <>
@@ -57,24 +57,24 @@ const SettingsForm = (event) => {
           <h3>Update Settings</h3>
           <form onSubmit={handleSubmit} className={classes.form} >
 
-            <Checkbox
+            <Switch
               label="Show Completed?"
               checked={showCompleted}
               onChange={(event) => setShowCompleted(event.target.checked)}
             />
-{/* NumberInput is BREAKING THE LOGIC OF MY CODE WITH A val.ToFixed is not a function error */}
-            <input
-              type="number"
+            {/* NumberInput is BREAKING THE LOGIC OF MY CODE WITH A val.ToFixed is not a function error */}
+            <NumberInput
               name="pageItems"
-              label="Items per page"
+              label="Items Per Page"
               placeholder={pageItems}
               value={pageItems}
-              onChange={(event) => setPageItems(event.target.value)}
+              //for onChange(event) => setPageItems(event.target.value) this was breaking the code with mantine BUT is needed for default input
+              onChange={setPageItems}
             />
 
             <TextInput
-              label="Sort by"
-              placeholder="difficulty"
+              label="Sort Keyword"
+              placeholder={sort}
               value={sort}
               onChange={(event) => setSort(event.target.value)}
             />
