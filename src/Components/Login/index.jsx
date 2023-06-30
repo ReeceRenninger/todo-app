@@ -10,10 +10,20 @@ const styles = createStyles((theme) => ({
   form: {
     display: 'flex',
     flexFlow: 'row wrap',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-evenly',
     gap: '10px',
     boxSizing: 'border-box',
     
+  },
+  loginButton: {
+    backgroundColor: theme.colors.gray[7],
+    justifyContent: 'space-evenly',
+    margin: 'auto',
+  },
+  logoutButton: {
+    backgroundColor: theme.colors.red[7],
+    justifyContent: 'space-evenly',
+    margin: 'auto',
   }
 }));
 
@@ -38,7 +48,7 @@ const Login = () => {
     <>
     
       <When condition={isLoggedIn}>
-        <Button onClick={logout}>Logout</Button>
+        <Button className={classes.logoutButton} onClick={logout}>Logout</Button>
       </When>
 
       <When condition={!isLoggedIn}>
@@ -53,7 +63,7 @@ const Login = () => {
             name='password'
             onChange={(event) => setPassword(event.target.value)}
           />
-          <Button type='submit'>Log In</Button>
+          <Button className={classes.loginButton} type='submit'>Log In</Button>
         </form>
       </When>
 

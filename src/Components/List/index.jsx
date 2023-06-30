@@ -1,17 +1,28 @@
 import { SettingsContext } from '../../Context/Settings';
 import { useContext, useState } from 'react';
+import { Badge, Card, Group, Pagination, Text, CloseButton, createStyles } from '@mantine/core';
+import { Else, If, Then } from "react-if";
+import Auth from '../Auth';
+import { AuthContext } from '../../Context/Auth';
 
-import { Card, Button, Pagination, Text} from '@mantine/core';
+const styles = createStyles((theme) => ({
+  tasks: {
+    width: '70%',
+    margin: 'auto',
+  }
+}))
 
-function List({list, toggleComplete}) {
+function List({ list, toggleComplete, deleteItem }) {
 
-  const { pageItems, showCompleted } = useContext(SettingsContext); //sort was taken out of here
+  const { classes } = styles();
+  const { pageItems, showCompleted } = useContext(SettingsContext);
   const [currentPage, setCurrentPage] = useState(1);
+  const { isLoggedIn, can } = useContext(AuthContext);
 
-  const displayItems = showCompleted 
-  ? list
-  : list.filter((items) => !items.complete);
-  
+  const displayItems = showCompleted
+    ? list
+    : list.filter((items) => !items.complete);
+
   const pages = Math.ceil(displayItems.length / pageItems);
   const firstItem = (currentPage - 1) * pageItems;
   const lastItem = currentPage * pageItems;
@@ -19,28 +30,53 @@ function List({list, toggleComplete}) {
 
   return (
     <>
-    
-      <Card shadow="sm" padding="md" margin="md">
-        <Card.Section>
+
+
 
       {finalItems.map(item => (
-        <div key={item.id}>
-          <Text>{item.text}</Text>
-          <Text><small>Assigned to: {item.assignee}</small></Text>
-          <Text><small>Difficulty: {item.difficulty}</small></Text>
-          <Button onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</Button>
-          <hr />
-        </div>
+
+        <Card className={classes.tasks} key={item.id} shadow='sm' padding='md' margin='md' withBorder>
+          <Card.Section>
+            <Group position='apart'>
+              <If condition={isLoggedIn && can('update')}>
+                <Then>
+                  <Badge
+                    onClick={() => toggleComplete(item.id)}
+                    color={item.complete ? 'green' : 'red'}
+                  >
+                    {item.complete ? 'Completed' : 'Pending'}
+                  </Badge>
+                </Then>
+                <Else>
+                  <Badge
+                    color={item.complete ? 'green' : 'red'}
+                  >
+                    {item.complete ? 'Completed' : 'Pending'}
+                  </Badge>
+                </Else>
+              </If>
+              <Auth capability='delete' >
+                <CloseButton aria-label="Close modal" title="Close popover" size="xl" iconSize={20}
+                  onClick={() => deleteItem(item.id)} />
+              </Auth>
+              <Text>{item.text}</Text>
+              <Text><small>Assigned to: {item.assignee}</small></Text>
+              <Text><small>Difficulty: {item.difficulty}</small></Text>
+              {/* <Button onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</Button> */}
+              <hr />
+            </Group>
+          </Card.Section>
+
+        </Card>
       ))}
-      </Card.Section>
+      <Group position='center'>
 
-      <Pagination
-        total={pages}
-        value={currentPage}
-        onChange={(value)=> setCurrentPage(value)}
-      />
-      </Card>
-
+        <Pagination
+          total={pages}
+          value={currentPage}
+          onChange={(value) => setCurrentPage(value)}
+        />
+      </Group>
     </>
   )
 }

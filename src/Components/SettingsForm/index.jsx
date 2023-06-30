@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { SettingsContext } from "../../Context/Settings";
-import { createStyles, Button, Switch, TextInput, Text } from "@mantine/core";
+import { createStyles, Button, Switch, TextInput, Text, Card } from "@mantine/core";
 import { NumberInput } from '@mantine/core';
 import { IconSettings } from '@tabler/icons-react';
 
@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'space-evenly',
     padding: theme.spacing.md,
   },
-  section: {
+  card: {
     border: `1px solid gray`,
   },
   form: {
@@ -53,7 +53,7 @@ const SettingsForm = (event) => {
     <>
       <h1 className={classes.h1}><IconSettings /> Manage Settings </h1>
       <div className={classes.div}>
-        <section className={classes.section}>
+        <Card  shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
           <h3>Update Settings</h3>
           <form onSubmit={handleSubmit} className={classes.form} >
 
@@ -81,7 +81,8 @@ const SettingsForm = (event) => {
 
             <Button type="submit">Update Settings</Button>
           </form>
-        </section>
+        </Card>
+        <Card  shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
         {
           showUpdate &&
           <section className={classes.section}>
@@ -91,6 +92,7 @@ const SettingsForm = (event) => {
             <Text> Sort Keyword: {sort}</Text>
           </section>
         }
+        </Card>
       </div>
 
     </>

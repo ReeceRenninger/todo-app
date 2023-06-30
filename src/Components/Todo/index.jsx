@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import useForm from '../../hooks/form';
 import { v4 as uuid } from 'uuid';
 import List from '../List';
+import Auth from '../Auth';
+
 
 import { Grid, TextInput, Button, Text, createStyles, Slider } from '@mantine/core';
 
@@ -69,6 +71,7 @@ const Todo = () => {
       <h1 data-testid="header-h1" className={classes.todo}>To Do List: {incomplete} items pending</h1>
 
       <Grid> 
+        <Auth capability="create">
         <Grid.Col xs={12} sm={4}>
 
           <form onSubmit={handleSubmit}>
@@ -105,12 +108,14 @@ const Todo = () => {
           </form>
 
         </Grid.Col>
-        
+        </Auth>
         <Grid.Col xs={12} sm={8}>
+          {/* <Card shadow="sm" padding="md" margin="md"> */}
           <List
             deleteItem={deleteItem} //trying to remove the error and place function here for now
             list={list}
             toggleComplete={toggleComplete} />
+            {/* </Card> */}
         </Grid.Col>
       </Grid>
     </>
