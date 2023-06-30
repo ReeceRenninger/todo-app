@@ -28,7 +28,7 @@ const Todo = () => {
   const [defaultValues] = useState({
     difficulty: 3,
   });
-  const [list, setList] = useState([]);
+  const [list, setList] = useState([]); //TODO: maybe modify this to just get the list from the server?
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
 
@@ -65,6 +65,11 @@ const Todo = () => {
     // disable code used to avoid linter warning 
     // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, [list]);
+
+  useEffect(() => {
+    //TODO: initial get request for the todos will go here possibly?
+  }, []);
+  
   //!! Discovered grids can hold multiple grid columns around specific components
   return (
     <>

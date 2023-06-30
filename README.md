@@ -165,19 +165,19 @@ for now I have none and do not require one
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-# LAB - Class xx
+# LAB - Class 34
 
-## Project: Project Name Here
+## Project: Auth Continued
 
-### Author: Student/Group Name
+### Author: Reece Renninger
 
 ### Problem Domain  
 
-Concise Description of why this app exists
+In Phase 4, we will finalize the functionality of the application by connecting to live servers for login, authorization, and data access.
 
 ### Links and Resources
 
-- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions) 
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions)
 - [front-end application](http://xyz.com) (when applicable)
 
 ### Collaborators
@@ -197,15 +197,16 @@ for now I have none and do not require one
 
 #### Features / Routes
 
-- Feature One: Details of feature
-- GET : `/hello` - specific route to hit
+- Feature One: Local user settings persist with local storage to allow todo list to be customized
+- Feature Two: User can add, delete, and hide completed tasks
+- Feature Three: User can sort tasks by difficulty
+- Feature Four: Auth implemented with users able to sign in with different roles
+- Feature Five: Ping User API for login
 
 #### Tests
 
-- How do you run tests?
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+- npm test
 
 #### UML
 
-Link to an image of the UML for your application and response to events
+![Alt text](assets/Lab34UML.png)

@@ -1,7 +1,7 @@
 import { SettingsContext } from '../../Context/Settings';
 import { useContext, useState } from 'react';
 import { Badge, Card, Group, Pagination, Text, CloseButton, createStyles } from '@mantine/core';
-import { Else, If, Then } from "react-if";
+import { If, Then } from "react-if"; //Else,
 import Auth from '../Auth';
 import { AuthContext } from '../../Context/Auth';
 
@@ -36,34 +36,36 @@ function List({ list, toggleComplete, deleteItem }) {
       {finalItems.map(item => (
 
         <Card className={classes.tasks} key={item.id} shadow='sm' padding='md' margin='md' withBorder>
-          <Card.Section>
+          <Card.Section withBorder>
             <Group position='apart'>
               <If condition={isLoggedIn && can('update')}>
                 <Then>
                   <Badge
                     onClick={() => toggleComplete(item.id)}
-                    color={item.complete ? 'green' : 'red'}
+                    color={item.complete ? 'red' : 'green'}
                   >
                     {item.complete ? 'Completed' : 'Pending'}
+
                   </Badge>
                 </Then>
-                <Else>
+                {/* <Else>
                   <Badge
                     color={item.complete ? 'green' : 'red'}
                   >
                     {item.complete ? 'Completed' : 'Pending'}
                   </Badge>
-                </Else>
+                </Else> */}
               </If>
-              <Auth capability='delete' >
-              </Auth>
+
               <Text>{item.text}</Text>
               <Text><small>Assigned to: {item.assignee}</small></Text>
               <Text><small>Difficulty: {item.difficulty}</small></Text>
-             
+
+              <Auth capability='delete' >
                 <CloseButton aria-label="Close modal" title="Close popover" size="xl" iconSize={20}
                   onClick={() => deleteItem(item.id)} />
-            
+              </Auth>
+
             </Group>
           </Card.Section>
 

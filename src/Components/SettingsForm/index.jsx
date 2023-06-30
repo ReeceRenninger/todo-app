@@ -54,7 +54,7 @@ const SettingsForm = (event) => {
     <>
       <h1 className={classes.h1}><IconSettings /> Manage Settings </h1>
       <div className={classes.div}>
-        <Card  shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
+        <Card shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
           <h3>Update Settings</h3>
           <form onSubmit={handleSubmit} className={classes.form} >
 
@@ -82,21 +82,23 @@ const SettingsForm = (event) => {
             <Button type="submit">Update Settings</Button>
           </form>
         </Card>
-  <If condition={showUpdate}>
-    <Then>
-        <Card  shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
-        {
-          showUpdate &&
-          <section className={classes.section}>
-            <h3>Updated Settings</h3>
-            <Text> Show Completed: {showCompleted ? 'yes' : 'no'}</Text>
-            <Text> Items Per Page: {pageItems}</Text>
-            <Text> Sort Keyword: {sort}</Text>
-          </section>
-        }
-        </Card>
-        </Then>
+
+        <If condition={showUpdate}>
+          <Then>
+            <Card shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
+              {
+                showUpdate &&
+                <section className={classes.section}>
+                  <h3>Updated Settings</h3>
+                  <Text> Show Completed: {showCompleted ? 'yes' : 'no'}</Text>
+                  <Text> Items Per Page: {pageItems}</Text>
+                  <Text> Sort Keyword: {sort}</Text>
+                </section>
+              }
+            </Card>
+          </Then>
         </If>
+        
       </div>
 
     </>

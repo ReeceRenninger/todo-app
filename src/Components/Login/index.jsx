@@ -1,10 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { When } from 'react-if';
-// import { SettingsContext } from '../../Context/Settings';
 import { AuthContext } from '../../Context/Auth';
 import { Button, Group, TextInput, createStyles } from '@mantine/core';
-
-
 
 const styles = createStyles((theme) => ({
   form: {
@@ -35,9 +32,6 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-
-  console.log('isLoggedIn', isLoggedIn);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     login(username, password);
@@ -46,7 +40,7 @@ const Login = () => {
 
   return (
     <>
-      <Group position='right'  >
+      <Group position='right'>
         <When condition={isLoggedIn}>
           <Button className={classes.logoutButton} onClick={logout}>Logout</Button>
         </When>
@@ -54,6 +48,7 @@ const Login = () => {
 
       <When condition={!isLoggedIn}>
         <form className={classes.form} onSubmit={handleSubmit}>
+        {/* <Group onSubmit={handleSubmit} position='right'> */}
           <TextInput
             placeholder='Username'
             name='username'
@@ -64,7 +59,8 @@ const Login = () => {
             name='password'
             onChange={(event) => setPassword(event.target.value)}
           />
-          <Button className={classes.loginButton} type='submit'>Log In</Button>
+          <Button onClick={handleSubmit} className={classes.loginButton} type='submit'>Log In</Button>
+        {/* </Group> */}
         </form>
       </When>
 

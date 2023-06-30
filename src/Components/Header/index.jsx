@@ -12,7 +12,7 @@ const styles = createStyles((theme) => ({
     fontSize: '16px',
     padding: theme.spacing.sm,
   },
-  links : {
+  links: {
     color: theme.colors.gray[0],
     fontSize: theme.fontSizes.md,
     textDecoration: 'none',
@@ -20,22 +20,25 @@ const styles = createStyles((theme) => ({
 }));
 
 function Header(props) {
-  
+
   const { classes } = styles();
 
   return (
-<>
-<Navbar className={classes.headerNav}>
-  <Group position='left'>
-  <Link className={classes.links} to='/'>Home</Link>
-  <Link className={classes.links} to='/settings'>Settings</Link>
-  </Group>
-  <Group position='right'  >
-  <Login />
-  </Group>
-</Navbar>
+    <>
+      <Navbar className={classes.headerNav}>
 
-</>
+        <Group position='left'>
+          <Link className={classes.links} to='/'>Home</Link>
+          <Link className={classes.links} to='/settings'>Settings</Link>
+        </Group>
+
+        <Group position='right'>
+          <Login />
+        </Group>
+
+      </Navbar>
+
+    </>
   );
 }
 
