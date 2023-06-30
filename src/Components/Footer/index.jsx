@@ -1,8 +1,9 @@
-import { createStyles } from "@mantine/core";
+import { Group, createStyles } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    textAlign: 'right',
+    textAlign: 'center',
+    padding: theme.spacing.sm,
   }
 }));
 
@@ -10,7 +11,9 @@ const useStyles = createStyles((theme) => ({
 function Footer() {
   const { classes } = useStyles();
   return (
+    <Group position='right'  >
     <footer className={classes.footer}data-testid="footer-test">Author: Reece Renninger </footer>
+    </Group>
   )
 }
 

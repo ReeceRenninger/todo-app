@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { When } from 'react-if';
 // import { SettingsContext } from '../../Context/Settings';
 import { AuthContext } from '../../Context/Auth';
-import { Button, TextInput, createStyles } from '@mantine/core';
+import { Button, Group, TextInput, createStyles } from '@mantine/core';
 
 
 
@@ -13,7 +13,7 @@ const styles = createStyles((theme) => ({
     justifyContent: 'space-evenly',
     gap: '10px',
     boxSizing: 'border-box',
-    
+
   },
   loginButton: {
     backgroundColor: theme.colors.gray[7],
@@ -29,13 +29,13 @@ const styles = createStyles((theme) => ({
 
 
 const Login = () => {
-  
+
   const { classes } = styles(); // this needs to be in the function
   const { isLoggedIn, login, logout } = useContext(AuthContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
-  
+
+
   console.log('isLoggedIn', isLoggedIn);
 
   const handleSubmit = (event) => {
@@ -46,10 +46,11 @@ const Login = () => {
 
   return (
     <>
-    
-      <When condition={isLoggedIn}>
-        <Button className={classes.logoutButton} onClick={logout}>Logout</Button>
-      </When>
+      <Group position='right'  >
+        <When condition={isLoggedIn}>
+          <Button className={classes.logoutButton} onClick={logout}>Logout</Button>
+        </When>
+      </Group>
 
       <When condition={!isLoggedIn}>
         <form className={classes.form} onSubmit={handleSubmit}>

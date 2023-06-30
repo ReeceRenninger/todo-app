@@ -5,7 +5,7 @@ import List from '../List';
 import Auth from '../Auth';
 
 
-import { Grid, TextInput, Button, Text, createStyles, Slider } from '@mantine/core';
+import { Grid, TextInput, Button, Text, createStyles, Slider, Card } from '@mantine/core';
 
 
 
@@ -65,49 +65,46 @@ const Todo = () => {
     // disable code used to avoid linter warning 
     // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, [list]);
-//!! Discovered grids can hold multiple grid columns around specific components
+  //!! Discovered grids can hold multiple grid columns around specific components
   return (
     <>
       <h1 data-testid="header-h1" className={classes.todo}>To Do List: {incomplete} items pending</h1>
 
-      <Grid> 
+      <Grid>
         <Auth capability="create">
-        <Grid.Col xs={12} sm={4}>
+          <Grid.Col xs={12} sm={4}>
+            <Card shadow="sm" padding="md" margin="md" withBorder>
+              <form onSubmit={handleSubmit}>
 
-          <form onSubmit={handleSubmit}>
+                <h2>Add To Do Item</h2>
 
-            <h2>Add To Do Item</h2>
+                <TextInput
+                  onChange={handleChange}
+                  name="text"
+                  type="text"
+                  placeholder="Item Details"
+                />
 
-            <TextInput
-              onChange={handleChange}
-              name="text"
-              type="text"
-              placeholder="Item Details"
-            />
+                <TextInput
+                  onChange={handleChange}
+                  name="assignee"
+                  type="text"
+                  placeholder="Assignee Name"
+                />
 
-            <TextInput
-              onChange={handleChange}
-              name="assignee"
-              type="text"
-              placeholder="Assignee Name"
-            />
+                <Text>Difficulty Rating</Text>
+                <Slider
+                  onChange={handleChange}
+                  defaultValue={defaultValues.difficulty}
+                  min={1}
+                  max={5}
+                  name="difficulty"
+                />
 
-            <Text>Difficulty Rating</Text>
-            <Slider
-              onChange={handleChange}
-              defaultValue={defaultValues.difficulty}
-              min={1}
-              max={5}
-              name="difficulty"
-            />
-
-
-            <label>
-              <Button radius="md" type="submit">Add Item</Button>
-            </label>
-          </form>
-
-        </Grid.Col>
+                <Button radius="md" type="submit">Add Item</Button>
+              </form>
+            </Card>
+          </Grid.Col>
         </Auth>
         <Grid.Col xs={12} sm={8}>
           {/* <Card shadow="sm" padding="md" margin="md"> */}
@@ -115,7 +112,7 @@ const Todo = () => {
             deleteItem={deleteItem} //trying to remove the error and place function here for now
             list={list}
             toggleComplete={toggleComplete} />
-            {/* </Card> */}
+          {/* </Card> */}
         </Grid.Col>
       </Grid>
     </>

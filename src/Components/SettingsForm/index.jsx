@@ -3,6 +3,7 @@ import { SettingsContext } from "../../Context/Settings";
 import { createStyles, Button, Switch, TextInput, Text, Card } from "@mantine/core";
 import { NumberInput } from '@mantine/core';
 import { IconSettings } from '@tabler/icons-react';
+import { If, Then } from "react-if";
 
 const useStyles = createStyles((theme) => ({
   h1: {
@@ -78,10 +79,11 @@ const SettingsForm = (event) => {
               value={sort}
               onChange={(event) => setSort(event.target.value)}
             />
-
             <Button type="submit">Update Settings</Button>
           </form>
         </Card>
+  <If condition={showUpdate}>
+    <Then>
         <Card  shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
         {
           showUpdate &&
@@ -93,6 +95,8 @@ const SettingsForm = (event) => {
           </section>
         }
         </Card>
+        </Then>
+        </If>
       </div>
 
     </>

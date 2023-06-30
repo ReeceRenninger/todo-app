@@ -56,14 +56,14 @@ function List({ list, toggleComplete, deleteItem }) {
                 </Else>
               </If>
               <Auth capability='delete' >
-                <CloseButton aria-label="Close modal" title="Close popover" size="xl" iconSize={20}
-                  onClick={() => deleteItem(item.id)} />
               </Auth>
               <Text>{item.text}</Text>
               <Text><small>Assigned to: {item.assignee}</small></Text>
               <Text><small>Difficulty: {item.difficulty}</small></Text>
-              {/* <Button onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</Button> */}
-              <hr />
+             
+                <CloseButton aria-label="Close modal" title="Close popover" size="xl" iconSize={20}
+                  onClick={() => deleteItem(item.id)} />
+            
             </Group>
           </Card.Section>
 
