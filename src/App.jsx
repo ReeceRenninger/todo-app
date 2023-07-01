@@ -26,7 +26,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-      // <Auth capability="read">
-      //  <p>I can read!</p>
-      //  <Auth/>

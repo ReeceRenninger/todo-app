@@ -1,26 +1,33 @@
-import React from 'react';
-import { useState } from 'react';
-import testUsers from './lib/users.js';
+import axios from 'axios';
+import cookie from 'react-cookies';
 import jwt_decode from 'jwt-decode';
+import React, { useState, useEffect } from 'react'; 
 
 export const AuthContext = React.createContext();
 
-function AuthProvider({ children }){
+function AuthProvider({ children }) {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [error, setError] = useState(null);
-  // const [token, setToken] = useState(''); //copilot suggested this
+
+  useEffect (() => {
+  let cookieToken = cookie.load('auth');
+  _validateToken(cookieToken);
+  }, []);
 
   const _validateToken = token => {
     try {
       // if token is valid, then we have a user assigned to the validUser variable
       let validUser = jwt_decode(token);
       console.log('Valid User', validUser);
-      if(validUser){
+      // if valid token we set login to true and set user to the validUser
+      if (validUser) {
+        // save cookie
+        cookie.save('auth', token);
         setUser(validUser);
         setIsLoggedIn(true);
-        console.log('User is logged in', isLoggedIn);
+        // console.log('User is logged in', isLoggedIn);
       }
     }
     catch (error) {
@@ -29,19 +36,29 @@ function AuthProvider({ children }){
     }
 
   };
-  
-  const login = (username, password) => {
-    let user = testUsers[username];
-    if(user && user.password === password){
+
+  const login = async (username, password) => {
+    let config = {
+      baseURL: 'https://api-js401.herokuapp.com',
+      url: '/signin',
+      method: 'post',
+      auth: { username, password }
+    }
+
+    let response = await axios(config);
+    console.log('RESPONSE FROM AXIOS--------------', response.data);
+    let token = response.data.token;
+
+    if (token) {
       try {
-        _validateToken(user.token);
+        _validateToken(token);
       } catch (error) {
         setError(error);
         console.log('Login Error', error);
       }
     }
   };
-  
+
   const logout = () => {
     setUser({});
     setIsLoggedIn(false);
@@ -49,9 +66,9 @@ function AuthProvider({ children }){
 
   //authorize function for lab
   const can = (capability) => {
-    return user?.capabilities?.includes(capability); //will return true if each aspect is met
+    return user?.capabilities?.includes(capability);
   };
-  
+
   const values = {
     isLoggedIn,
     user,
