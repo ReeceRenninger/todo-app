@@ -10,7 +10,6 @@ function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [error, setError] = useState(null);
-  // const [token, setToken] = useState(''); //copilot suggested this
 
   useEffect (() => {
   let cookieToken = cookie.load('auth');
@@ -45,7 +44,7 @@ function AuthProvider({ children }) {
       method: 'post',
       auth: { username, password }
     }
-    
+
     let response = await axios(config);
     console.log('RESPONSE FROM AXIOS--------------', response.data);
     let token = response.data.token;

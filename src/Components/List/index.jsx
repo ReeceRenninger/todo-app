@@ -1,20 +1,13 @@
 import { SettingsContext } from '../../Context/Settings';
 import { useContext, useState } from 'react';
-import { Badge, Card, Group, Pagination, Text, CloseButton, createStyles } from '@mantine/core';
-import { If, Then, Else } from "react-if"; //Else,
+import { Badge, Card, Group, Pagination, Text, CloseButton } from '@mantine/core';
+import { If, Then, Else } from "react-if"; 
 import Auth from '../Auth';
 import { AuthContext } from '../../Context/Auth';
 
-const styles = createStyles((theme) => ({
-  tasks: {
-    width: '70%',
-    margin: 'auto',
-  }
-}))
-
 function List({ list, toggleComplete, deleteItem }) {
 
-  const { classes } = styles();
+  
   const { pageItems, showCompleted } = useContext(SettingsContext);
   const [currentPage, setCurrentPage] = useState(1);
   const { isLoggedIn, can } = useContext(AuthContext);
@@ -57,18 +50,20 @@ function List({ list, toggleComplete, deleteItem }) {
                     </Badge>
                   </Else>
                 </If>
-                <Text>{item.assignee}</Text>
+                <Text data-testid='item-assignee-test' >{item.assignee}</Text>
               </Group>
+
               <Auth capability="delete">
                 <CloseButton
                   onClick={() => deleteItem(item._id)}
                   title="Close Todo Item"
                 />
               </Auth>
+              
             </Group>
           </Card.Section>
-          <Text mt="sm" align="left">{item.text}</Text>
-          <Text align="right"><small>Difficulty: {item.difficulty}</small></Text>
+          <Text data-testid='item-text-test' mt="sm" align="left">{item.text}</Text>
+          <Text data-testid='item-difficulty-test' align="right"><small>Difficulty: {item.difficulty}</small></Text>
         </Card >
       ))
       }

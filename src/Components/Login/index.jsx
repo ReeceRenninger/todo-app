@@ -4,23 +4,13 @@ import { AuthContext } from '../../Context/Auth';
 import { Button, Group, TextInput, createStyles } from '@mantine/core';
 
 const styles = createStyles((theme) => ({
-  form: {
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'space-evenly',
-    gap: '10px',
-    boxSizing: 'border-box',
-
-  },
   loginButton: {
     backgroundColor: theme.colors.gray[7],
-    justifyContent: 'space-evenly',
-    margin: 'auto',
+   
   },
   logoutButton: {
     backgroundColor: theme.colors.red[7],
-    justifyContent: 'space-evenly',
-    margin: 'auto',
+   
   }
 }));
 
@@ -32,23 +22,21 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    login(username, password);
-    //event.target.reset(); 
+  const handleLogout = () => {
+    logout();
+    setUsername('');
+    setPassword('');
   }
 
   return (
     <>
-      <Group position='right'>
+      
         <When condition={isLoggedIn}>
-          <Button className={classes.logoutButton} onClick={logout}>Logout</Button>
+          <Button className={classes.logoutButton} onClick={handleLogout}>Logout</Button>
         </When>
-      </Group>
-
+     
       <When condition={!isLoggedIn}>
-        <form className={classes.form} onSubmit={handleSubmit}>
-        {/* <Group onSubmit={handleSubmit} position='right'> */}
+        <Group >
           <TextInput
             placeholder='Username'
             name='username'
@@ -59,14 +47,12 @@ const Login = () => {
             name='password'
             onChange={(event) => setPassword(event.target.value)}
           />
-          <Button onClick={handleSubmit} className={classes.loginButton} type='submit'>Log In</Button>
-        {/* </Group> */}
-        </form>
+          <Button onClick={() => login(username, password)} className={classes.loginButton}>Log In</Button>
+        </Group>
       </When>
 
     </>
   )
-
 };
 
 export default Login;
