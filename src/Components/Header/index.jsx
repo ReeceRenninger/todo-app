@@ -2,7 +2,6 @@ import { createStyles, Group, Navbar } from "@mantine/core";
 import { Link } from "react-router-dom";
 import Login from "../Login";
 
-
 const styles = createStyles((theme) => ({
   headerNav: {
     backgroundColor: theme.colors.blue[6],

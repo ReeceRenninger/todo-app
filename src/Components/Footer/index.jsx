@@ -7,7 +7,6 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-
 function Footer() {
   const { classes } = useStyles();
   return (

@@ -6,7 +6,6 @@ import Auth from '../Auth';
 import { AuthContext } from '../../Context/Auth';
 
 function List({ list, toggleComplete, deleteItem }) {
-
   
   const { pageItems, showCompleted } = useContext(SettingsContext);
   const [currentPage, setCurrentPage] = useState(1);
@@ -59,7 +58,7 @@ function List({ list, toggleComplete, deleteItem }) {
                   title="Close Todo Item"
                 />
               </Auth>
-              
+
             </Group>
           </Card.Section>
           <Text data-testid='item-text-test' mt="sm" align="left">{item.text}</Text>

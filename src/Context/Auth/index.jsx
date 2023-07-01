@@ -66,7 +66,7 @@ function AuthProvider({ children }) {
 
   //authorize function for lab
   const can = (capability) => {
-    return user?.capabilities?.includes(capability); //will return true if each aspect is met
+    return user?.capabilities?.includes(capability);
   };
 
   const values = {

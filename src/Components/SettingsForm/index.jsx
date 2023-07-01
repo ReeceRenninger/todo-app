@@ -46,7 +46,6 @@ const SettingsForm = (event) => {
     e.preventDefault();
     setShowUpdate(true); // populates the box for updated settings
     saveLocalStorage();
-    // e.target.reset(); // wtf is this doing?
   };
 
   //!! BROKE UP STYLING INTO SECTIONS TO TRY AND GET TO SIDE BY SIDE WITH SOME SIMPLE BORDERS 
@@ -63,13 +62,12 @@ const SettingsForm = (event) => {
               checked={showCompleted}
               onChange={(event) => setShowCompleted(event.target.checked)}
             />
-            {/* NumberInput is BREAKING THE LOGIC OF MY CODE WITH A val.ToFixed is not a function error */}
+            
             <NumberInput
               name="pageItems"
               label="Items Per Page"
               placeholder={pageItems}
               value={pageItems}
-              //for onChange(event) => setPageItems(event.target.value) this was breaking the code with mantine BUT is needed for default input
               onChange={setPageItems}
             />
 
@@ -79,6 +77,7 @@ const SettingsForm = (event) => {
               value={sort}
               onChange={(event) => setSort(event.target.value)}
             />
+            
             <Button type="submit">Update Settings</Button>
           </form>
         </Card>
@@ -98,7 +97,7 @@ const SettingsForm = (event) => {
             </Card>
           </Then>
         </If>
-        
+
       </div>
 
     </>

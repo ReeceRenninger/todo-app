@@ -14,7 +14,6 @@ const styles = createStyles((theme) => ({
   }
 }));
 
-
 const Login = () => {
 
   const { classes } = styles(); // this needs to be in the function
