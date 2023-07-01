@@ -130,7 +130,7 @@ In Phase 3, we’d like to extend the functionality of the application by requir
 ### Links and Resources
 
 - [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions) 
-- [front-end application](http://xyz.com) (when applicable)
+- [front-end application](https://codesandbox.io/p/github/ReeceRenninger/todo-app/auth?layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522panelType%2522%253A%2522TABS%2522%252C%2522id%2522%253A%2522cljhrj9dx00cm2a6ftq2yl6tt%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522panelType%2522%253A%2522TABS%2522%252C%2522id%2522%253A%2522cljhrj9dx00co2a6f6f35sk0o%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B50%252C50%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522cljhrj9dx00cm2a6ftq2yl6tt%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522cljhrj9dx00cl2a6fja59qf91%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522FILE%2522%252C%2522filepath%2522%253A%2522%252FREADME.md%2522%257D%255D%252C%2522id%2522%253A%2522cljhrj9dx00cm2a6ftq2yl6tt%2522%252C%2522activeTabId%2522%253A%2522cljhrj9dx00cl2a6fja59qf91%2522%257D%252C%2522cljhrj9dx00co2a6f6f35sk0o%2522%253A%257B%2522id%2522%253A%2522cljhrj9dx00co2a6f6f35sk0o%2522%252C%2522activeTabId%2522%253A%2522cljhrjtvz00tc2a6fh1cyvm4h%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522id%2522%253A%2522cljhrjtvz00tc2a6fh1cyvm4h%2522%252C%2522mode%2522%253A%2522permanent%2522%257D%252C%257B%2522type%2522%253A%2522TASK_PORT%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522id%2522%253A%2522cljhrk2py011r2a6fgjya4iw9%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522path%2522%253A%2522%2522%257D%255D%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D) (when applicable)
 
 ### Collaborators
 
@@ -162,32 +162,32 @@ for now I have none and do not require one
 
 ![Alt text](assets/Lab33UML.png)
 
-
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-# LAB - Class xx
+# LAB - Class 34
 
-## Project: Project Name Here
+## Project: Auth Continued
 
-### Author: Student/Group Name
+### Author: Reece Renninger
 
 ### Problem Domain  
 
-Concise Description of why this app exists
+In Phase 4, we will finalize the functionality of the application by connecting to live servers for login, authorization, and data access.
 
 ### Links and Resources
 
-- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions) 
-- [front-end application](http://xyz.com) (when applicable)
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions)
+- [front-end application](https://codesandbox.io/p/github/ReeceRenninger/todo-app/auth-finalization?layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522panelType%2522%253A%2522TABS%2522%252C%2522id%2522%253A%2522cljj5gae300ba2a6fmphho7k4%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522panelType%2522%253A%2522TABS%2522%252C%2522id%2522%253A%2522cljj5gae300bc2a6fhrmk8gqg%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B50%252C50%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522cljj5gae300ba2a6fmphho7k4%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522cljj5gae300b92a6f3stbrncz%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522FILE%2522%252C%2522filepath%2522%253A%2522%252FREADME.md%2522%257D%255D%252C%2522id%2522%253A%2522cljj5gae300ba2a6fmphho7k4%2522%252C%2522activeTabId%2522%253A%2522cljj5gae300b92a6f3stbrncz%2522%257D%252C%2522cljj5gae300bc2a6fhrmk8gqg%2522%253A%257B%2522id%2522%253A%2522cljj5gae300bc2a6fhrmk8gqg%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522id%2522%253A%2522cljj5gbu200h12a6fonmgcgl3%2522%252C%2522mode%2522%253A%2522permanent%2522%257D%255D%252C%2522activeTabId%2522%253A%2522cljj5gbu200h12a6fonmgcgl3%2522%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D) (when applicable)
 
 ### Collaborators
+
+- Nick M and Ryan E for helping me with the auth and getting the login to work
 
 ### Setup
 
 #### `.env` requirements (where applicable)
 
 for now I have none and do not require one
-
 
 #### How to initialize/run your application (where applicable)
 
@@ -197,15 +197,16 @@ for now I have none and do not require one
 
 #### Features / Routes
 
-- Feature One: Details of feature
-- GET : `/hello` - specific route to hit
+- Feature One: Local user settings persist with local storage to allow todo list to be customized
+- Feature Two: User can add, delete, and hide completed tasks
+- Feature Three: User can sort tasks by difficulty
+- Feature Four: Auth implemented with users able to sign in with different roles
+- Feature Five: Ping User API for login and grabbing tasks from database
 
 #### Tests
 
-- How do you run tests?
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+- npm test
 
 #### UML
 
-Link to an image of the UML for your application and response to events
+![Alt text](assets/Lab34UML.png)

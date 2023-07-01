@@ -1,11 +1,12 @@
+import axios from 'axios';
+import Auth from '../Auth';
+import List from '../List';
 import React, { useEffect, useState } from 'react';
 import useForm from '../../hooks/form';
-import { v4 as uuid } from 'uuid';
-import List from '../List';
-import Auth from '../Auth';
+// import { v4 as uuid } from 'uuid';
 
 
-import { Grid, TextInput, Button, Text, createStyles, Slider } from '@mantine/core';
+import { Grid, TextInput, Button, Text, createStyles, Slider, Card } from '@mantine/core';
 
 
 
@@ -28,32 +29,54 @@ const Todo = () => {
   const [defaultValues] = useState({
     difficulty: 3,
   });
-  const [list, setList] = useState([]);
+  const [list, setList] = useState([]); //TODO: maybe modify this to just get the list from the server?
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
 
   function addItem(item) {
-    item.id = uuid();
-    item.complete = false;
-    console.log(item);
-    setList([...list, item]);
+    try {
+      const url = 'https://api-js401.herokuapp.com/api/v1/todo';
+      const method = 'post';
+      const data = item;
+      item.complete = false;
+      console.log(item);
+      // item.id = uuid();
+      axios({ url, method, data }); // !! ASK RYAN HOW THIS IS WORKING, I followed the docs but I am confused on how it functions
+      setList([...list, item]);
+
+    } catch (error) {
+      console.error('ERROR WHEN TRYING TO ADD ITEM', error);
+    }
   }
 
   function deleteItem(id) {
-    const items = list.filter(item => item.id !== id);
-    setList(items);
+    try {
+      axios.delete(`https://api-js401.herokuapp.com/api/v1/todo/${id}`);
+      const items = list.filter(item => item._id !== id);
+      setList(items);
+    } catch (error) {
+      console.error('ERROR WHEN TRYING TO DELETE ITEM', error);
+    }
   }
 
   function toggleComplete(id) {
+    try {
+      const items = list.map(item => {
+      const url = `https://api-js401.herokuapp.com/api/v1/todo/${id}`;
+      const method = 'put';
+      const data = { complete: !item.complete };
+      axios({ url, method, data }); // !! ASK RYAN HOW THIS IS WORKING, I followed the docs but I am confused on how it functions
+        if (item._id === id) {
+          item.complete = !item.complete;
+        }
+        return item;
+      });
 
-    const items = list.map(item => {
-      if (item.id === id) {
-        item.complete = !item.complete;
-      }
-      return item;
-    });
+      setList(items);
 
-    setList(items);
+    } catch (error) {
+      console.error('ERROR WHEN TRYING TO TOGGLE COMPLETE', error);
+    }
 
   }
 
@@ -65,57 +88,65 @@ const Todo = () => {
     // disable code used to avoid linter warning 
     // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, [list]);
-//!! Discovered grids can hold multiple grid columns around specific components
+
+  // this should trigger on page load to grab list of tasks from URL
+  useEffect(() => {
+    const getData = async () => {
+      let response = await axios.get('https://api-js401.herokuapp.com/api/v1/todo');
+
+      setList(response.data.results);
+    };
+    getData();
+  }, []);
+
+  //!! Discovered grids can hold multiple grid columns around specific components
   return (
     <>
       <h1 data-testid="header-h1" className={classes.todo}>To Do List: {incomplete} items pending</h1>
 
-      <Grid> 
+      <Grid>
         <Auth capability="create">
-        <Grid.Col xs={12} sm={4}>
+          <Grid.Col xs={12} sm={4}>
+            <Card shadow="sm" padding="md" margin="md" withBorder>
+              <form onSubmit={handleSubmit}>
 
-          <form onSubmit={handleSubmit}>
+                <h2>Add To Do Item</h2>
 
-            <h2>Add To Do Item</h2>
+                <TextInput
+                  onChange={handleChange}
+                  name="text"
+                  type="text"
+                  placeholder="Item Details"
+                />
 
-            <TextInput
-              onChange={handleChange}
-              name="text"
-              type="text"
-              placeholder="Item Details"
-            />
+                <TextInput
+                  onChange={handleChange}
+                  name="assignee"
+                  type="text"
+                  placeholder="Assignee Name"
+                />
 
-            <TextInput
-              onChange={handleChange}
-              name="assignee"
-              type="text"
-              placeholder="Assignee Name"
-            />
+                <Text>Difficulty Rating</Text>
+                <Slider
+                  onChange={handleChange}
+                  defaultValue={defaultValues.difficulty}
+                  min={1}
+                  max={5}
+                  name="difficulty"
+                />
 
-            <Text>Difficulty Rating</Text>
-            <Slider
-              onChange={handleChange}
-              defaultValue={defaultValues.difficulty}
-              min={1}
-              max={5}
-              name="difficulty"
-            />
-
-
-            <label>
-              <Button radius="md" type="submit">Add Item</Button>
-            </label>
-          </form>
-
-        </Grid.Col>
+                <Button radius="md" type="submit">Add Item</Button>
+              </form>
+            </Card>
+          </Grid.Col>
         </Auth>
         <Grid.Col xs={12} sm={8}>
           {/* <Card shadow="sm" padding="md" margin="md"> */}
           <List
-            deleteItem={deleteItem} //trying to remove the error and place function here for now
+            deleteItem={deleteItem}
             list={list}
             toggleComplete={toggleComplete} />
-            {/* </Card> */}
+          {/* </Card> */}
         </Grid.Col>
       </Grid>
     </>

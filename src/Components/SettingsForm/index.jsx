@@ -3,6 +3,7 @@ import { SettingsContext } from "../../Context/Settings";
 import { createStyles, Button, Switch, TextInput, Text, Card } from "@mantine/core";
 import { NumberInput } from '@mantine/core';
 import { IconSettings } from '@tabler/icons-react';
+import { If, Then } from "react-if";
 
 const useStyles = createStyles((theme) => ({
   h1: {
@@ -45,7 +46,6 @@ const SettingsForm = (event) => {
     e.preventDefault();
     setShowUpdate(true); // populates the box for updated settings
     saveLocalStorage();
-    // e.target.reset(); // wtf is this doing?
   };
 
   //!! BROKE UP STYLING INTO SECTIONS TO TRY AND GET TO SIDE BY SIDE WITH SOME SIMPLE BORDERS 
@@ -53,7 +53,7 @@ const SettingsForm = (event) => {
     <>
       <h1 className={classes.h1}><IconSettings /> Manage Settings </h1>
       <div className={classes.div}>
-        <Card  shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
+        <Card shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
           <h3>Update Settings</h3>
           <form onSubmit={handleSubmit} className={classes.form} >
 
@@ -62,13 +62,12 @@ const SettingsForm = (event) => {
               checked={showCompleted}
               onChange={(event) => setShowCompleted(event.target.checked)}
             />
-            {/* NumberInput is BREAKING THE LOGIC OF MY CODE WITH A val.ToFixed is not a function error */}
+            
             <NumberInput
               name="pageItems"
               label="Items Per Page"
               placeholder={pageItems}
               value={pageItems}
-              //for onChange(event) => setPageItems(event.target.value) this was breaking the code with mantine BUT is needed for default input
               onChange={setPageItems}
             />
 
@@ -78,21 +77,27 @@ const SettingsForm = (event) => {
               value={sort}
               onChange={(event) => setSort(event.target.value)}
             />
-
+            
             <Button type="submit">Update Settings</Button>
           </form>
         </Card>
-        <Card  shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
-        {
-          showUpdate &&
-          <section className={classes.section}>
-            <h3>Updated Settings</h3>
-            <Text> Show Completed: {showCompleted ? 'yes' : 'no'}</Text>
-            <Text> Items Per Page: {pageItems}</Text>
-            <Text> Sort Keyword: {sort}</Text>
-          </section>
-        }
-        </Card>
+
+        <If condition={showUpdate}>
+          <Then>
+            <Card shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
+              {
+                showUpdate &&
+                <section className={classes.section}>
+                  <h3>Updated Settings</h3>
+                  <Text> Show Completed: {showCompleted ? 'yes' : 'no'}</Text>
+                  <Text> Items Per Page: {pageItems}</Text>
+                  <Text> Sort Keyword: {sort}</Text>
+                </section>
+              }
+            </Card>
+          </Then>
+        </If>
+
       </div>
 
     </>
