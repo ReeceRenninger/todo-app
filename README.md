@@ -162,7 +162,6 @@ for now I have none and do not require one
 
 ![Alt text](assets/Lab33UML.png)
 
-
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 # LAB - Class 34
@@ -178,16 +177,17 @@ In Phase 4, we will finalize the functionality of the application by connecting 
 ### Links and Resources
 
 - [GitHub Actions ci/cd](https://github.com/ReeceRenninger/todo-app/actions)
-- [front-end application](http://xyz.com) (when applicable)
+- [front-end application](https://codesandbox.io/p/github/ReeceRenninger/todo-app/auth-finalization?layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522panelType%2522%253A%2522TABS%2522%252C%2522id%2522%253A%2522cljj5gae300ba2a6fmphho7k4%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522panelType%2522%253A%2522TABS%2522%252C%2522id%2522%253A%2522cljj5gae300bc2a6fhrmk8gqg%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B50%252C50%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522cljj5gae300ba2a6fmphho7k4%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522cljj5gae300b92a6f3stbrncz%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522FILE%2522%252C%2522filepath%2522%253A%2522%252FREADME.md%2522%257D%255D%252C%2522id%2522%253A%2522cljj5gae300ba2a6fmphho7k4%2522%252C%2522activeTabId%2522%253A%2522cljj5gae300b92a6f3stbrncz%2522%257D%252C%2522cljj5gae300bc2a6fhrmk8gqg%2522%253A%257B%2522id%2522%253A%2522cljj5gae300bc2a6fhrmk8gqg%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522id%2522%253A%2522cljj5gbu200h12a6fonmgcgl3%2522%252C%2522mode%2522%253A%2522permanent%2522%257D%255D%252C%2522activeTabId%2522%253A%2522cljj5gbu200h12a6fonmgcgl3%2522%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D) (when applicable)
 
 ### Collaborators
+
+- Nick M and Ryan E for helping me with the auth and getting the login to work
 
 ### Setup
 
 #### `.env` requirements (where applicable)
 
 for now I have none and do not require one
-
 
 #### How to initialize/run your application (where applicable)
 
@@ -201,7 +201,7 @@ for now I have none and do not require one
 - Feature Two: User can add, delete, and hide completed tasks
 - Feature Three: User can sort tasks by difficulty
 - Feature Four: Auth implemented with users able to sign in with different roles
-- Feature Five: Ping User API for login
+- Feature Five: Ping User API for login and grabbing tasks from database
 
 #### Tests
 

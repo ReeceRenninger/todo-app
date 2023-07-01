@@ -1,8 +1,9 @@
+import axios from 'axios';
+import Auth from '../Auth';
+import List from '../List';
 import React, { useEffect, useState } from 'react';
 import useForm from '../../hooks/form';
-import { v4 as uuid } from 'uuid';
-import List from '../List';
-import Auth from '../Auth';
+// import { v4 as uuid } from 'uuid';
 
 
 import { Grid, TextInput, Button, Text, createStyles, Slider, Card } from '@mantine/core';
@@ -33,27 +34,49 @@ const Todo = () => {
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
 
   function addItem(item) {
-    item.id = uuid();
-    item.complete = false;
-    console.log(item);
-    setList([...list, item]);
+    try {
+      const url = 'https://api-js401.herokuapp.com/api/v1/todo';
+      const method = 'post';
+      const data = item;
+      item.complete = false;
+      console.log(item);
+      // item.id = uuid();
+      axios({ url, method, data }); // !! ASK RYAN HOW THIS IS WORKING, I followed the docs but I am confused on how it functions
+      setList([...list, item]);
+
+    } catch (error) {
+      console.error('ERROR WHEN TRYING TO ADD ITEM', error);
+    }
   }
 
   function deleteItem(id) {
-    const items = list.filter(item => item.id !== id);
-    setList(items);
+    try {
+      axios.delete(`https://api-js401.herokuapp.com/api/v1/todo/${id}`);
+      const items = list.filter(item => item._id !== id);
+      setList(items);
+    } catch (error) {
+      console.error('ERROR WHEN TRYING TO DELETE ITEM', error);
+    }
   }
 
   function toggleComplete(id) {
+    try {
+      const items = list.map(item => {
+      const url = `https://api-js401.herokuapp.com/api/v1/todo/${id}`;
+      const method = 'put';
+      const data = { complete: !item.complete };
+      axios({ url, method, data }); // !! ASK RYAN HOW THIS IS WORKING, I followed the docs but I am confused on how it functions
+        if (item._id === id) {
+          item.complete = !item.complete;
+        }
+        return item;
+      });
 
-    const items = list.map(item => {
-      if (item.id === id) {
-        item.complete = !item.complete;
-      }
-      return item;
-    });
+      setList(items);
 
-    setList(items);
+    } catch (error) {
+      console.error('ERROR WHEN TRYING TO TOGGLE COMPLETE', error);
+    }
 
   }
 
@@ -66,10 +89,16 @@ const Todo = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, [list]);
 
+  // this should trigger on page load to grab list of tasks from URL
   useEffect(() => {
-    //TODO: initial get request for the todos will go here possibly?
+    const getData = async () => {
+      let response = await axios.get('https://api-js401.herokuapp.com/api/v1/todo');
+
+      setList(response.data.results);
+    };
+    getData();
   }, []);
-  
+
   //!! Discovered grids can hold multiple grid columns around specific components
   return (
     <>
@@ -114,7 +143,7 @@ const Todo = () => {
         <Grid.Col xs={12} sm={8}>
           {/* <Card shadow="sm" padding="md" margin="md"> */}
           <List
-            deleteItem={deleteItem} //trying to remove the error and place function here for now
+            deleteItem={deleteItem}
             list={list}
             toggleComplete={toggleComplete} />
           {/* </Card> */}

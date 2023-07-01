@@ -1,7 +1,7 @@
 import { SettingsContext } from '../../Context/Settings';
 import { useContext, useState } from 'react';
 import { Badge, Card, Group, Pagination, Text, CloseButton, createStyles } from '@mantine/core';
-import { If, Then } from "react-if"; //Else,
+import { If, Then, Else } from "react-if"; //Else,
 import Auth from '../Auth';
 import { AuthContext } from '../../Context/Auth';
 
@@ -30,55 +30,52 @@ function List({ list, toggleComplete, deleteItem }) {
 
   return (
     <>
-
-
-
       {finalItems.map(item => (
+        <Card mb="sm" shadow="md" withBorder key={item._id}>
 
-        <Card className={classes.tasks} key={item.id} shadow='sm' padding='md' margin='md' withBorder>
           <Card.Section withBorder>
-            <Group position='apart'>
-              <If condition={isLoggedIn && can('update')}>
-                <Then>
-                  <Badge
-                    onClick={() => toggleComplete(item.id)}
-                    color={item.complete ? 'red' : 'green'}
-                  >
-                    {item.complete ? 'Completed' : 'Pending'}
-
-                  </Badge>
-                </Then>
-                {/* <Else>
-                  <Badge
-                    color={item.complete ? 'green' : 'red'}
-                  >
-                    {item.complete ? 'Completed' : 'Pending'}
-                  </Badge>
-                </Else> */}
-              </If>
-
-              <Text>{item.text}</Text>
-              <Text><small>Assigned to: {item.assignee}</small></Text>
-              <Text><small>Difficulty: {item.difficulty}</small></Text>
-
-              <Auth capability='delete' >
-                <CloseButton aria-label="Close modal" title="Close popover" size="xl" iconSize={20}
-                  onClick={() => deleteItem(item.id)} />
+            <Group position="apart">
+              <Group>
+                <If condition={isLoggedIn && can('update')}>
+                  <Then>
+                    <Badge
+                      onClick={() => toggleComplete(item._id)}
+                      color={item.complete ? 'red' : 'green'}
+                      variant="filled"
+                      m="3px"
+                    >
+                      {item.complete ? 'Complete' : 'Pending'}
+                    </Badge>
+                  </Then>
+                  <Else>
+                    <Badge
+                      color={item.complete ? 'red' : 'green'}
+                      variant="filled"
+                      m="3px"
+                    >
+                      {item.complete ? 'Complete' : 'Pending'}
+                    </Badge>
+                  </Else>
+                </If>
+                <Text>{item.assignee}</Text>
+              </Group>
+              <Auth capability="delete">
+                <CloseButton
+                  onClick={() => deleteItem(item._id)}
+                  title="Close Todo Item"
+                />
               </Auth>
-
             </Group>
           </Card.Section>
-
-        </Card>
-      ))}
-      <Group position='center'>
-
-        <Pagination
-          total={pages}
-          value={currentPage}
-          onChange={(value) => setCurrentPage(value)}
-        />
-      </Group>
+          <Text mt="sm" align="left">{item.text}</Text>
+          <Text align="right"><small>Difficulty: {item.difficulty}</small></Text>
+        </Card >
+      ))
+      }
+      <Pagination
+        value={currentPage}
+        onChange={setCurrentPage}
+        total={pages} />
     </>
   )
 }
